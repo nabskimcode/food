@@ -95,20 +95,3 @@ process.on("unhandledRejection", (err, promise) => {
   //Close server and exit process
   server.close(() => process.exit(1));
 });
-
-async function check(req, res) {
-  const a = await someOtherFunction().catch((err) => {
-    console.log(err);
-  });
-
-  if (a) {
-    return a;
-  }
-  const b = await somethingElseFunction().catch((err) => {
-    console.log(err);
-  });
-
-  return b;
-
-  res.send("result");
-}
